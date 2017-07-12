@@ -42,7 +42,7 @@ Shader "MyCkBook/3_BlinnPhong"
 			//漫反射强度
 			float diff = dot(s.Normal,lightDir);
 			//计算光照方向和观察方向的中间向量
-			float3 halfDir = normalize((lightDir + viewDir)/2);
+			float3 halfDir = normalize(lightDir + viewDir);
 
 			float spec = pow(max(0,dot(halfDir,s.Normal)),_SpecPow);
 			float3 finalSpec = _SpecularColor.rgb * spec;
